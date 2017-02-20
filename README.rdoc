@@ -5,3 +5,9 @@ Example app for
 To see live, follow instructions for pushing to Heroku and go to 
 
 /assets
+
+
+
+I'm running at
+
+https://image-optim-paperclip-exmp-41.herokuapp.com
