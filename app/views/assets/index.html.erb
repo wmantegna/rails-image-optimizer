@@ -1,0 +1,32 @@
+<h1>Listing assets</h1>
+
+<table cellpadding="10" >
+  <thead>
+    <tr>
+		<td></td>
+		<td>Filename</td>
+		<td>Dimensions</td>
+		<td>Size</td>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assets.each do |asset| %>
+      <tr>
+		<td><%= image_tag asset.attachment.url(:thumb) %></td>
+		<td><%=  asset.attachment_file_name %></td>
+		<td><%=  asset.attachment_width %> x <%= asset.attachment_height %></td>
+		<td><%= Filesize.from("#{ asset.attachment_file_size} KB").pretty %></td>
+		
+        <td><%= link_to 'Show', asset %></td>
+        <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
+        <td><%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Asset', new_asset_path %>

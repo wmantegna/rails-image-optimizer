@@ -1,0 +1,26 @@
+<%= link_to raw("&laquo; Back to all assets"),  assets_path%>
+
+<p id="notice"><%= notice %></p>
+
+<fieldset style="position: relative">
+	<legend>Asset <%=@asset.id%></legend>
+	Filename: <%= @asset.attachment_file_name %><br />
+	Width: <%= @asset.attachment_width %><br />
+	Height: <%= @asset.attachment_height %><br />
+	Filesize: <%= Filesize.from("#{@asset.attachment_file_size} KB").pretty %><br />
+	Content Type: <%= @asset.attachment_content_type %><br />
+	<div style="position: absolute; top: 20px; right: 10px">
+	<%= image_tag @asset.attachment.url(:thumb) %>
+	</div>
+</fieldset>
+
+Original:
+<%= image_tag @asset.attachment.url(:original) %>
+
+
+Optimized:
+<%= image_tag @asset.attachment.url(:optimized) %>
+
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', assets_path %>

@@ -1,0 +1,7 @@
+== README
+Example app for
+
+
+To see live, follow instructions for pushing to Heroku and go to 
+
+/assets
