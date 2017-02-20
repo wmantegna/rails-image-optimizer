@@ -4,7 +4,7 @@
   <thead>
     <tr>
 		<td></td>
-		<td>Filename</td>
+		<td>Original Filename</td>
 		<td>Dimensions</td>
 		<td>Size</td>
       <th colspan="4"></th>
@@ -17,7 +17,7 @@
 		<td><%= image_tag asset.attachment.url(:thumb) %></td>
 		<td><%=  asset.attachment_file_name %></td>
 		<td><%=  asset.attachment_width %> x <%= asset.attachment_height %></td>
-		<td><%= Filesize.from("#{ asset.attachment_file_size} KB").pretty %></td>
+		<td><%= Filesize.from("#{ asset.attachment_file_size} B").pretty %></td>
 		
         <td><%= link_to 'Show', asset %></td>
         <td><%= link_to 'Edit', edit_asset_path(asset) %></td>

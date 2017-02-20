@@ -7,7 +7,7 @@
 	Filename: <%= @asset.attachment_file_name %><br />
 	Width: <%= @asset.attachment_width %><br />
 	Height: <%= @asset.attachment_height %><br />
-	Filesize: <%= Filesize.from("#{@asset.attachment_file_size} KB").pretty %><br />
+	Original Filesize: <%= Filesize.from("#{@asset.attachment_file_size} B").pretty %><br />
 	Content Type: <%= @asset.attachment_content_type %><br />
 	<div style="position: absolute; top: 20px; right: 10px">
 	<%= image_tag @asset.attachment.url(:thumb) %>
@@ -19,10 +19,12 @@ Original:
 <%= image_tag @asset.attachment.url(:original) %>
 <br />
 
-Optimized:
+<% [0,1,2,3,4].each do |n| %>
+Optimized with <strong>jpegrecompress: {quality <%= n %>, allow_lossy: true}, jpegoptim: { allow_lossy: true, strip: :all, max_quality: 75 } </strong>
 <br />
-<%= image_tag @asset.attachment.url(:optimized) %>
-
+<%= image_tag @asset.attachment.url("optimized_compress_#{n}".to_sym) %>
+<hr />
+<% end %>
 
 <%= link_to 'Edit', edit_asset_path(@asset) %> |
 <%= link_to 'Back', assets_path %>
