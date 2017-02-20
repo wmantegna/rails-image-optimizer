@@ -1,36 +1,12 @@
-<h1>Example app for my blog post</h1>
-<h4>
-<a href="http://www.jasonfleetwoodboldt.com/writing/2017/02/20/how-to-get-your-heroku-app-to-optimize-your-images/" target="_blank">	
-How to get your Heroku app to optimize your images for you automagically using Paperclip, image_optim and special buildpacks
-</a>
-</h4>
-<br/>
-<h4>
-<a href="https://github.com/jasonfb/image-optim-with-paperclip-on-heroku-example-app-rails41/blob/master/README.rdoc" target="_blank">READ ME</a> to set this app up locally for development purposes.
-</h4>
-<br/>
-<hr />
-<h1>
-<div style="text-align:center; text-size:2em">
-<a href="/assets">TAKE ME TO THE ASSETS</a>
-</div>
-</h1>
-
-<hr /><br/>
-DCMA <br/>
-Please use the "destroy" button to destroy any content immediately. Content is removed from teh Amazon S3 buckets immediately and not preserved whatsoever. Please send DCMA requests to me using any of <a href="http://www.jasonfleetwoodboldt.com">these contact methods</a>
-<br/>
-
-<hr />
 Copyright (c) 2017 Jason Fleetwood-Boldt
-<br/>
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
-<br/>
+
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
