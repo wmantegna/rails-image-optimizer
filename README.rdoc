@@ -1,14 +1,9 @@
 == README
-Example app  
+This is the Example app to accompany my blog post 2017-02-20:
+<a href=""></a>
 
 
-To see live, follow instructions for pushing to Heroku and go to 
-
-https://image-optim-paperclip-exmp-41.herokuapp.com/assets
-
-
-
-I'm running at
+I'm running a live demo of this code at
 
 https://image-optim-paperclip-exmp-41.herokuapp.com
 
@@ -19,7 +14,13 @@ Running me locally
 
 • Go ahead, clone me to your local drive
 
+• Make sure ImageMagick is installed
+
 • When running locally, you run me with SQLite
 
-• When you create assets, they will be created at public/system/. This folder is in .gitignore
+• Be sure to ```rake db:create``` and ```rake db:migrate```. You should notice only an ```assets``` table is created.
+
+• Upload some large, un-optimized images
+
+• When you uplodate assets, they will be created at public/system/. This folder is in .gitignore
 
