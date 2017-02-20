@@ -2,14 +2,14 @@ class Asset < ActiveRecord::Base
 
   has_attached_file :attachment, {
       styles: { 
-        :thumb => '125x100>',
-        :optimized => '100%'
+        :thumb => {geometry: '125x100>'},
+        :optimized => {geometry: '100%'}
       },
-      processors:  [:thumbnail], #, :paperclip_optimizer
+      processors:  [:thumbnail, :paperclip_optimizer],
       paperclip_optimizer: {
         nice: 19,
-        jpegoptim: { allow_lossy: true, strip: :all, max_quality: 60 },
-        jpegrecompress: {allow_lossy: true, quality: 3},
+        jpegoptim: { allow_lossy: true, strip: :all, max_quality: 50 },
+        jpegrecompress: {allow_lossy: true, quality: 2},
         jpegtran: {progressive: true},
         optipng: { level: 2 },
         pngout: { strategy: 1}
