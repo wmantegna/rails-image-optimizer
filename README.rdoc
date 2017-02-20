@@ -1,16 +1,18 @@
 == README
 This is the Example app to accompany my blog post 2017-02-20:
-<a href=""></a>
+http://www.jasonfleetwoodboldt.com/writing/2017/02/20/how-to-get-your-heroku-app-to-optimize-your-images/
 
 
-I'm running a live demo of this code at
 
+== LIVE DEMO
+
+I'm running a live demo of this code here
 https://image-optim-paperclip-exmp-41.herokuapp.com
 
 Because I pay for this bucket, please do not abuse. This demo app is provided for developer testing purposes only; I reserve the right to delete any images uploaded for any reason, including copyright infringement or simply lack-of-space. Please do not upload any inappropriate photos or photos you do not own.
 
 
-Running me locally 
+== Running me locally 
 
 • Go ahead, clone me to your local drive
 
