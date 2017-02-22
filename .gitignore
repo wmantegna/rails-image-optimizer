@@ -11,3 +11,7 @@ public/system/assets/
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+
+# for me
+.byebug_history

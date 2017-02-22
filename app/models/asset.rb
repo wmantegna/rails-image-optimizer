@@ -43,15 +43,13 @@ class Asset < ActiveRecord::Base
   def determine_style_file_sizes
     filesizes = {}
     self.attachment.styles.collect{|k,v| v.name}.each do |style|
-      if Rails.env.development?
-        filesize = File.read([Rails.root.to_s, "public", self.attachment.url(style)].join("/")).size
-      elsif Rails.env.production?
+      if Rails.application.class.config.paperclip_defaults[:storage] == :s3
         filesize = URI(self.attachment.url(style.to_sym)).read.size
+      else
+        filesize = File.read([Rails.root.to_s, "public", self.attachment.url(style)].join("/")).size
       end
       filesizes[style] = filesize
     end
-    # self.filesize_metadata = filesizes
     self.update_column(:filesize_metadata, filesizes)
-    
   end      
 end
