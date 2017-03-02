@@ -22,7 +22,7 @@ Because I pay for this bucket, please do not abuse. This demo app is provided fo
 
 • Be sure to ```rake db:create``` and ```rake db:migrate```. You should notice only an ```assets``` table is created.
 
-• Upload some large, un-optimized images
+• Upload some large, un-optimized images. You'll notice the optimizer will create optimized versions
 
-• When you uplodate assets, they will be created at public/system/. This folder is in .gitignore
+• When you upload assets, they will be created at public/system/. This folder is in .gitignore
 
