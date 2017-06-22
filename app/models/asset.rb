@@ -44,6 +44,7 @@ class Asset < ActiveRecord::Base
     filesizes = {}
     self.attachment.styles.collect{|k,v| v.name}.each do |style|
       if Rails.application.class.config.paperclip_defaults[:storage] == :s3
+        logger.info(self.attachment.url(style.to_sym))
         filesize = URI(self.attachment.url(style.to_sym)).read.size
       else
         filesize = File.read([Rails.root.to_s, "public", self.attachment.url(style)].join("/")).size
