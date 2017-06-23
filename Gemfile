@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.11'
+ruby "~> 2.3.0"
+gem 'rails', '4.2.1'
 
 
 gem 'sqlite3', group: :development
@@ -17,11 +17,11 @@ gem 'byebug'
 
 gem 'jquery-rails'
 gem 'uglifier'
-gem 'aws-sdk', '~> 2', group: :production
+gem 'aws-sdk', '~> 2'             # Amazon Web Servicers for s3 dev
 
 gem 'filesize'
 
-gem 'paperclip'
+gem 'paperclip', '~> 5'           # Image Upload Library
 
 gem 'paperclip-optimizer'
 gem 'image_optim'
