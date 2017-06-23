@@ -7,7 +7,7 @@
 	Filename: <%= @asset.attachment_file_name %><br />
 	Width: <%= @asset.attachment_width %><br />
 	Height: <%= @asset.attachment_height %><br />
-	Original Filesize: <%= Filesize.from("#{@asset.attachment_file_size} B").pretty %><br />
+	Original Filesize: <%# Filesize.from("#{@asset.attachment_file_size} B").pretty %><br />
 	Content Type: <%= @asset.attachment_content_type %><br />
 	<div style="position: absolute; top: 20px; right: 10px">
 	<%= image_tag @asset.attachment.url(:thumb) %>

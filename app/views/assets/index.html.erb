@@ -19,10 +19,10 @@
 		<td><%=  asset.attachment_width %> x <%= asset.attachment_height %></td>
 		<td>Original <%= Filesize.from("#{ asset.attachment_file_size} B").pretty %>
 		<br />
-		<% asset.attachment.styles.collect{|k,v| v.name}.reverse.each do |style| %>
-			<%=style.to_s%>: <%= Filesize.from("#{ asset.filesize_metadata[style] } B").pretty %>
-			(<%= sprintf("%.1f", ((asset.filesize_metadata[style.to_sym].to_f / asset.attachment_file_size.to_f) * 100)) %>% of original, saving 
-			<%= Filesize.from("#{  asset.attachment_file_size.to_i - asset.filesize_metadata[style.to_sym] } B").pretty %> saved)
+		<% #asset.attachment.styles.collect{|k,v| v.name}.reverse.each do |style| %>
+			<%# style.to_s%>: <%= Filesize.from("#{ asset.filesize_metadata[style] } B").pretty %>
+			(<%# sprintf("%.1f", ((asset.filesize_metadata[style.to_sym].to_f / asset.attachment_file_size.to_f) * 100)) %>% of original, saving 
+			<%# Filesize.from("#{  asset.attachment_file_size.to_i - asset.filesize_metadata[style.to_sym] } B").pretty %> saved)
 			<br />
 		<% end %>
 		</td>
