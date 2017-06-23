@@ -9,18 +9,21 @@ Bundler.require(*Rails.groups)
 module ImageOptimWithPaperclipOnHerokuExampleAppRails41
   class Application < Rails::Application
     
-    if !Rails.env.development?   
-      config.paperclip_defaults = {
-        storage: :s3,
-        s3_protocol: "https",
-        s3_region: ENV["AWS_S3_REGION"],
-        s3_credentials: {
-          # s3_host_name: ENV["AWS_S3_HOST_NAME"],
-          bucket: ENV['AWS_BUCKET'], 
-          access_key_id: ENV['AWS_ACCESS_KEY_ID'], 
-          secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-        }
-      }
+    pathUrl = '/:class/:attachment/:id/:style/:filename'
+    unless Rails.env.production?
+      pathUrl = 'dev/:class/:attachment/:id/:style/:filename'
     end
+    
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_host_name => ENV["AWS_S3_HOST_NAME"],
+      :s3_credentials => {
+        :bucket => ENV['AWS_BUCKET'],
+        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      }, 
+      :url =>':s3_domain_url',
+      :path => pathUrl
+    }
   end
 end
