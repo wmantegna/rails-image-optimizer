@@ -27,7 +27,7 @@ class Asset < ActiveRecord::Base
   
   
   before_save :determine_dimensions
-  # after_save :determine_style_file_sizes
+  after_save :determine_style_file_sizes
   
   def determine_dimensions
     if attachment?
