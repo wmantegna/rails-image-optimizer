@@ -17,14 +17,25 @@ module ImageOptimWithPaperclipOnHerokuExampleAppRails41
     config.paperclip_defaults = {
       storage: :s3,
       s3_region: ENV["AWS_S3_REGION"],
-      :s3_credentials => {
-        :s3_host_name => ENV["AWS_S3_HOST_NAME"],
-        :bucket => ENV['AWS_BUCKET'],
-        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      s3_credentials: {
+        s3_host_name: ENV["AWS_S3_HOST_NAME"],
+        bucket: ENV['AWS_BUCKET'],
+        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
       }, 
-      :url =>':s3_domain_url',
-      :path => pathUrl
+      url: ':s3_domain_url',
+      path: pathUrl,
+      processors:  [:thumbnail, :paperclip_optimizer],
+      paperclip_optimizer: {
+        nice: 19,
+        jpegoptim: { allow_lossy: true, strip: :all, max_quality: 75 },
+        jpegtran: { progressive: true},
+        optipng: { level: 2 },
+        pngout: { strategy: 1}
+      },
+      # path: "#{'public/' if Rails.env.test?}asset/:id/:style/:basename.:extension",
+      convert_options: { :all => '-auto-orient +profile "exif"' },
+      s3_headers: { 'Cache-Control' => 'max-age=600'}
     }
   end
 end

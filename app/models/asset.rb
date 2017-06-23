@@ -9,20 +9,8 @@ class Asset < ActiveRecord::Base
       :optimized_compress_2 => {geometry: '100%', paperclip_optimizer: {jpegrecompress: {allow_lossy: true, quality: 2}}},
       :optimized_compress_3 => {geometry: '100%', paperclip_optimizer: {jpegrecompress: {allow_lossy: true, quality: 3}}},
       :optimized_compress_4 => {geometry: '100%', paperclip_optimizer: {jpegrecompress: {allow_lossy: true, quality: 4}}},
-    },
-    processors:  [:thumbnail, :paperclip_optimizer],
-    paperclip_optimizer: {
-      nice: 19,
-      jpegoptim: { allow_lossy: true, strip: :all, max_quality: 75 },
-      jpegtran: { progressive: true},
-      optipng: { level: 2 },
-      pngout: { strategy: 1}
-    },
-    # path: "#{'public/' if Rails.env.test?}asset/:id/:style/:basename.:extension",
-    convert_options: { :all => '-auto-orient +profile "exif"' },
-    s3_headers: { 'Cache-Control' => 'max-age=600'}
+    }
   }
-    
   validates_attachment_content_type :attachment, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   
   
