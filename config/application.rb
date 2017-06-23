@@ -13,11 +13,12 @@ module ImageOptimWithPaperclipOnHerokuExampleAppRails41
     unless Rails.env.production?
       pathUrl = 'dev/:class/:attachment/:id/:style/:filename'
     end
-    
+
     config.paperclip_defaults = {
-      :storage => :s3,
-      :s3_host_name => ENV["AWS_S3_HOST_NAME"],
+      storage: :s3,
+      s3_region: ENV["AWS_S3_REGION"],
       :s3_credentials => {
+        :s3_host_name => ENV["AWS_S3_HOST_NAME"],
         :bucket => ENV['AWS_BUCKET'],
         :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
