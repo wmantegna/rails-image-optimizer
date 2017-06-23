@@ -24,7 +24,7 @@
 			(<%# sprintf("%.1f", ((asset.filesize_metadata[style.to_sym].to_f / asset.attachment_file_size.to_f) * 100)) %>% of original, saving 
 			<%# Filesize.from("#{  asset.attachment_file_size.to_i - asset.filesize_metadata[style.to_sym] } B").pretty %> saved)
 			<br />
-		<% end %>
+		<%# end %>
 		</td>
         <td><%= link_to 'Show', asset %></td>
         <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
