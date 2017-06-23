@@ -17,7 +17,7 @@ gem 'byebug'
 
 gem 'jquery-rails'
 gem 'uglifier'
-gem 'aws-sdk', '< 2.0', group: :production
+gem 'aws-sdk', '~> 2', group: :production
 
 gem 'filesize'
 
