@@ -23,9 +23,10 @@ gem 'filesize'
 
 gem 'paperclip', '~> 5'           # Image Upload Library
 
-gem 'paperclip-optimizer'
-gem 'image_optim'
-gem 'image_optim_rails'
-gem 'image_optim_pack'
+gem 'paperclip-optimizer'   # image compression
+gem 'image_optim'           # image compression
+gem 'image_optim_rails'     # image compression
+gem 'image_optim_pack'      # image compression
+gem "delayed_paperclip"     # compress images with background worker
 
 gem 'figaro'

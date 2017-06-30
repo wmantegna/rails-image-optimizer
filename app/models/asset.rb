@@ -12,6 +12,7 @@ class Asset < ActiveRecord::Base
     }
   }
   validates_attachment_content_type :attachment, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  process_in_background :attachment
   
   
   before_save :determine_dimensions
