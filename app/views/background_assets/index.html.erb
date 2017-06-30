@@ -1,0 +1,39 @@
+<h1>Listing Background Assets</h1>
+
+<table cellpadding="10" >
+  <thead>
+    <tr>
+    <td></td>
+    <td>Original Filename</td>
+    <td>Dimensions</td>
+    <td style="width: 40%">Size</td>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @background_assets.each do |asset| %>
+      <tr>
+    <td><%= image_tag asset.attachment.url(:thumb) %></td>
+    <td><%=  asset.attachment_file_name %></td>
+    <td><%=  asset.attachment_width %> x <%= asset.attachment_height %></td>
+    <td>Original <%= Filesize.from("#{ asset.attachment_file_size} B").pretty %>
+    <br />
+    <% #asset.attachment.styles.collect{|k,v| v.name}.reverse.each do |style| %>
+      <%# style.to_s%>: <%# Filesize.from("#{ asset.filesize_metadata[style] } B").pretty %>
+      (<%# sprintf("%.1f", ((asset.filesize_metadata[style.to_sym].to_f / asset.attachment_file_size.to_f) * 100)) %>% of original, saving 
+      <%# Filesize.from("#{  asset.attachment_file_size.to_i - asset.filesize_metadata[style.to_sym] } B").pretty %> saved)
+      <br />
+    <%# end %>
+    </td>
+        <td><%= link_to 'Show', asset %></td>
+        <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
+        <td><%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Background asset', new_background_asset_path %>

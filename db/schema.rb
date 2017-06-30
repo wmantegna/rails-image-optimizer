@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630191712) do
+ActiveRecord::Schema.define(version: 20170630202308) do
 
   create_table "assets", force: :cascade do |t|
     t.string   "attachment_file_name"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20170630191712) do
     t.datetime "updated_at"
     t.text     "filesize_metadata"
     t.boolean  "attachment_processing"
+  end
+
+  create_table "background_assets", force: :cascade do |t|
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.string   "attachment_width"
+    t.string   "attachment_height"
+    t.string   "attachment_file_size"
+    t.text     "filesize_metadata"
+    t.boolean  "attachment_processing"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end

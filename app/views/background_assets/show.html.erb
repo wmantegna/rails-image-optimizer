@@ -1,0 +1,28 @@
+<%= link_to raw("&laquo; Back to all assets"),  background_assets_path %>
+
+<fieldset style="position: relative">
+  <legend>Asset <%=@background_asset.id%></legend>
+  Filename: <%= @background_asset.attachment_file_name %><br />
+  Width: <%= @background_asset.attachment_width %><br />
+  Height: <%= @background_asset.attachment_height %><br />
+  Original Filesize: <%# Filesize.from("#{@background_asset.attachment_file_size} B").pretty %><br />
+  Content Type: <%= @background_asset.attachment_content_type %><br />
+  <div style="position: absolute; top: 20px; right: 10px">
+  <%= image_tag @background_asset.attachment.url(:thumb) %>
+  </div>
+</fieldset>
+
+Original:
+<br />
+<%= image_tag @background_asset.attachment.url(:original) %>
+<br />
+
+<% [0,1,2,3,4].each do |n| %>
+  Optimized with <strong>jpegrecompress: {quality <%= n %>, allow_lossy: true}, jpegoptim: { allow_lossy: true, strip: :all, max_quality: 75 } </strong>
+  <br />
+  <%= image_tag @background_asset.attachment.url("optimized_compress_#{n}".to_sym) %>
+  <hr />
+<% end %>
+
+<%= link_to 'Edit', edit_background_asset_path(@background_asset) %> |
+<%= link_to 'Back', background_assets_path %>
