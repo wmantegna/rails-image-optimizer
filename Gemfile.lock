@@ -54,6 +54,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     exifr (1.2.5)
+    figaro (1.1.1)
+      thor (~> 0.14)
     filesize (0.1.1)
     fspath (3.1.0)
     globalid (0.4.0)
@@ -159,6 +161,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 2)
   byebug
+  figaro
   filesize
   image_optim
   image_optim_pack

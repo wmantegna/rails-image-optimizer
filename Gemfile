@@ -27,3 +27,5 @@ gem 'paperclip-optimizer'
 gem 'image_optim'
 gem 'image_optim_rails'
 gem 'image_optim_pack'
+
+gem 'figaro'

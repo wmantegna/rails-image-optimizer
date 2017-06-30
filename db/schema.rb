@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20170220220858) do
 
-  create_table "assets", force: true do |t|
+  create_table "assets", force: :cascade do |t|
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
     t.string   "attachment_width"

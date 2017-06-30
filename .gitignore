@@ -15,3 +15,5 @@ public/system/assets/
 
 # for me
 .byebug_history
+
+/config/application.yml

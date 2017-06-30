@@ -8,7 +8,7 @@ class Asset < ActiveRecord::Base
       :optimized_compress_1 => {geometry: '100%', paperclip_optimizer: {jpegrecompress: {allow_lossy: true, quality: 1}}},
       :optimized_compress_2 => {geometry: '100%', paperclip_optimizer: {jpegrecompress: {allow_lossy: true, quality: 2}}},
       :optimized_compress_3 => {geometry: '100%', paperclip_optimizer: {jpegrecompress: {allow_lossy: true, quality: 3}}},
-      :optimized_compress_4 => {geometry: '100%', paperclip_optimizer: {jpegrecompress: {allow_lossy: true, quality: 4}}},
+      :optimized_compress_4 => {geometry: '100%', paperclip_optimizer: {jpegrecompress: {allow_lossy: true, quality: 4}}}
     }
   }
   validates_attachment_content_type :attachment, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
