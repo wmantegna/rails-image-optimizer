@@ -43,5 +43,8 @@ module ImageOptimWithPaperclipOnHerokuExampleAppRails41
 
     # shut off deprecation warning in logs
     config.active_record.raise_in_transactional_callbacks = true
+
+    # configure active job to use a back-end
+    config.active_job.queue_adapter = :delayed_job
   end
 end

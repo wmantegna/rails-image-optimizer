@@ -1,32 +1,41 @@
 source 'https://rubygems.org'
 
 
-ruby "~> 2.3.0"
-gem 'rails', '4.2.1'
-
-
-gem 'sqlite3', group: :development
-gem 'pg', group: :production
-gem 'rails_12factor', group: :production
-
-# gem 'therubyracer',  platforms: :ruby
-
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
-gem 'byebug'
+ruby '~> 2.4'
+gem 'rails', '~> 4.2.9'
 
 gem 'jquery-rails'
 gem 'uglifier'
-gem 'aws-sdk', '~> 2'             # Amazon Web Servicers for s3 dev
+gem 'aws-sdk', '~> 2'           # Amazon Web Servicers for s3 dev
 
-gem 'filesize'
+gem 'paperclip', '~> 5'         # Image Upload Library
+gem 'paperclip-optimizer'       # image compression
+gem 'image_optim'               # image compression
+gem 'image_optim_rails'         # image compression
+gem 'image_optim_pack'          # image compression
+gem 'filesize'                  # filesize information
+gem "delayed_paperclip"         # compress images with background worker
+gem 'delayed_job_active_record' # delayed_job back-end
 
-gem 'paperclip', '~> 5'           # Image Upload Library
+group :production do
+  gem 'pg'                  # postgreSQL database
+  gem 'rails_12factor'      # heroku gem
+end
 
-gem 'paperclip-optimizer'   # image compression
-gem 'image_optim'           # image compression
-gem 'image_optim_rails'     # image compression
-gem 'image_optim_pack'      # image compression
-gem "delayed_paperclip"     # compress images with background worker
+group :development do
+  gem 'sqlite3'             # sqlite database
+  gem 'spring'              # speeds up dev by running your app in the background
+end
 
-gem 'figaro'
+group :development, :test do
+  gem 'figaro'              # env var's
+
+  gem 'pry-rails'           # Causes rails console to open pry
+  gem 'pry-byebug'          # Adds step, next, finish, and continue commands and breakpoints
+  gem 'pry-stack_explorer'  # Navigate the call-stack
+  gem 'annotate'            # Annotate all your models, tests, fixtures, and factories
+  gem 'quiet_assets'        # Turns off the Rails asset pipeline log
+  gem 'better_errors'       # Replaces the standard Rails error page with a much better and more useful error page
+  gem 'binding_of_caller'   # Advanced features for better_errors advanced features (REPL, local/instance variable inspection, pretty stack frame names)
+  gem 'meta_request'        # Supporting gem for Rails Panel (Google Chrome extension for Rails development).
+end

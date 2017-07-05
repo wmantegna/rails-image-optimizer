@@ -53,6 +53,6 @@ class BackgroundAssetsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def background_asset_params
-      params.require(:background_asset).permit(:attachment)
+      params[:background_asset].permit(:attachment)
     end
 end
