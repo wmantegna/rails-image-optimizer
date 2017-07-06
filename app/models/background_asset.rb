@@ -1,6 +1,8 @@
 class BackgroundAsset < ActiveRecord::Base
   serialize :filesize_metadata, Hash
 
+  # upload settings
+  ########################
   has_attached_file :attachment, {
     styles: { 
       :thumb => {geometry: '125x100>'},
@@ -12,12 +14,22 @@ class BackgroundAsset < ActiveRecord::Base
     }
   }
   validates_attachment_content_type :attachment, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-  process_in_background :attachment
+  ########################
+
+  # background processing
+  ########################
+  process_in_background :attachment, processing_image_url: :processing_image_fallback
+  def processing_image_fallback
+    options = attachment.options
+    options[:interpolator].interpolate(options[:url], attachment, :original)
+  end
+  ########################
   
-  
+
+  # Filesize
+  ########################
   before_save :determine_dimensions
   # after_save :determine_style_file_sizes
-  
   def determine_dimensions
     if attachment?
       tempfile = attachment.queued_for_write[:original]
@@ -42,4 +54,5 @@ class BackgroundAsset < ActiveRecord::Base
     end
     self.update_column(:filesize_metadata, filesizes)
   end
+  ########################
 end
