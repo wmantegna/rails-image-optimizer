@@ -15,7 +15,8 @@ gem 'image_optim_rails'         # image compression
 gem 'image_optim_pack'          # image compression
 gem 'filesize'                  # filesize information
 gem "delayed_paperclip"         # compress images with background worker
-gem 'delayed_job_active_record' # delayed_job back-end
+# gem 'delayed_job_active_record' # delayed_job back-end
+gem 'resque'                    # back-end worker process
 
 group :production do
   gem 'pg'                  # postgreSQL database

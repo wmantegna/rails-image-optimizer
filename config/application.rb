@@ -45,6 +45,9 @@ module ImageOptimWithPaperclipOnHerokuExampleAppRails41
     config.active_record.raise_in_transactional_callbacks = true
 
     # configure active job to use a back-end
-    config.active_job.queue_adapter = :delayed_job
+    config.active_job.queue_adapter = :resque
+
+    # config/initializers/resque.rb
+    Resque.logger = Logger.new(Rails.root.join('log', "#{Rails.env}_resque.log"))
   end
 end
