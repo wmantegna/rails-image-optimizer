@@ -17,6 +17,7 @@ gem 'filesize'                  # filesize information
 gem "delayed_paperclip"         # compress images with background worker
 # gem 'delayed_job_active_record' # delayed_job back-end
 gem 'resque'                    # back-end worker process
+gem 'resque-web', require: 'resque_web' # resque web interface (for use with prod)
 
 group :production do
   gem 'pg'                  # postgreSQL database
