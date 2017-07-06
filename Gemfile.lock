@@ -277,6 +277,7 @@ DEPENDENCIES
   rack-timeout
   rails (~> 4.2.9)
   rails_12factor
+  redis
   resque
   resque-web
   spring

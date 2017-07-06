@@ -5,6 +5,7 @@ ruby '~> 2.4'
 gem 'rails', '~> 4.2.9'
 gem 'puma'                      # web server
 gem "rack-timeout"              # time-out (puma doesn't do this on it's own)
+gem 'redis'                     # background processing
 
 gem 'jquery-rails'
 gem 'uglifier'
