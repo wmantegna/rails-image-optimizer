@@ -1,16 +1,23 @@
 source 'https://rubygems.org'
 
-
+# core
 ruby '~> 2.4'
 gem 'rails', '~> 4.2.9'
 gem 'puma'                      # web server
 gem "rack-timeout"              # time-out (puma doesn't do this on it's own)
-gem 'redis'                     # background processing
 
+# background processing
+gem 'redis'                     # background processing
+gem 'resque'                    # back-end worker process
+gem 'resque-scheduler'          # cron scheduling
+gem 'resque-web', require: 'resque_web' # resque web interface (for use with prod)
+
+# rails basics
 gem 'jquery-rails'
 gem 'uglifier'
-gem 'aws-sdk', '~> 2'           # Amazon Web Servicers for s3 dev
 
+# image processing
+gem 'aws-sdk', '~> 2'           # Amazon Web Servicers for s3 dev
 gem 'paperclip', '~> 5'         # Image Upload Library
 gem 'paperclip-optimizer'       # image compression
 gem 'image_optim'               # image compression
@@ -19,8 +26,6 @@ gem 'image_optim_pack'          # image compression
 gem 'filesize'                  # filesize information
 gem "delayed_paperclip"         # compress images with background worker
 # gem 'delayed_job_active_record' # delayed_job back-end
-gem 'resque'                    # back-end worker process
-gem 'resque-web', require: 'resque_web' # resque web interface (for use with prod)
 
 group :production do
   gem 'pg'                  # postgreSQL database
